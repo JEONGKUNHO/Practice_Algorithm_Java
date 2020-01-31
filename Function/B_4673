@@ -1,0 +1,25 @@
+package baek_function;
+
+public class B_4673 {
+	static boolean[] self=new boolean[10100];
+	
+	public static void main(String[] args) {
+		for(int i=1; i<=10000; i++) {
+			calculate(i);
+		}
+		for(int i=1; i<=10000; i++) {
+			if(self[i]==false)
+				System.out.println(i);
+		}
+
+}
+	
+	public static void calculate(int num) {
+		int value=num;
+		while(num>0) {
+			value+=num%10;
+			num/=10;
+		}
+		self[value]=true;
+	}
+}

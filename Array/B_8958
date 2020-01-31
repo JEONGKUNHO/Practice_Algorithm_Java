@@ -1,0 +1,32 @@
+package baek_array;
+
+import java.util.Scanner;
+
+public class B_8958 {
+
+	public static void main(String[] args) {
+		int num,score=0,plus=1;
+		Scanner sc= new Scanner(System.in);
+		num=sc.nextInt();
+		String[] OX=new String[num];
+		for(int i=0; i<OX.length; i++) {
+			OX[i]=sc.next();
+		}
+		for(int i=0; i<OX.length; i++) {
+			score=0;
+			plus=1;
+			for(int j=0; j<OX[i].length(); j++) {
+				if(OX[i].charAt(j)=='O') {
+					score+=plus;
+					plus++;
+				}
+				else {
+					plus=1;
+				}
+					
+			}	
+			System.out.println(score);
+		}
+	}
+
+}

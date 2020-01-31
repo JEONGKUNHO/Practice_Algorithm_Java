@@ -1,0 +1,26 @@
+package baek_function;
+
+import java.util.Scanner;
+
+public class B_1065 {
+	static void hansu(int num) {
+		int count=0;
+		if(num<100)
+			count=num;
+		else if(100<=num&&num<=1000){
+			count=99;
+			for(int i=100; i<=num; i++) {
+				if(i%10-(i/10)%10==(i/10)%10-i/100)
+					count++;
+		}
+	}
+		System.out.println(count);
+	}
+	public static void main(String[] args) {
+		int num;
+		Scanner sc=new Scanner(System.in);
+		num=sc.nextInt();
+		hansu(num);
+	}
+
+}

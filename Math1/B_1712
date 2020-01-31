@@ -1,0 +1,23 @@
+package baek_math1;
+
+import java.util.Scanner;
+
+public class B_1712 {
+
+	public static void main(String[] args) {
+		long A,B,C,num=0;
+		Scanner sc= new Scanner(System.in);
+		A=sc.nextInt();
+		B=sc.nextInt();
+		C=sc.nextInt();
+		while(A+(B*num)>=C*num) {
+			num++;
+			if(B>=C) {
+				num=-1;
+				break;
+			}
+		}
+		System.out.println(num);
+	}
+
+}

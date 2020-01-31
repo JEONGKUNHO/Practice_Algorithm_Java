@@ -1,0 +1,37 @@
+package baek_math1;
+
+import java.util.Scanner;
+
+public class B_2839 {
+
+	public static void main(String[] args) {
+		int num;
+		int min=1002;
+		int sum=0;
+		Scanner sc=new Scanner(System.in);
+		num=sc.nextInt();
+		if(num<3||num>5000)
+			System.out.print(-1);
+		else {
+		for(int i=0; i<=1000; i++) {//i - 3kg
+			for(int j=0; j<=1000; j++) {//j - 5kg
+				if(num==3*i+5*j) {
+					sum=i+j;
+				
+				if(min>sum)
+					min=sum;
+				
+				break;
+				}
+				}
+		}
+
+		
+		if(min==1002)
+			min=-1;
+		System.out.println(min);
+	}
+	}
+}
+
+

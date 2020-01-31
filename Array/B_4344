@@ -1,0 +1,42 @@
+package baek_array;
+
+import java.util.Scanner;
+
+public class B_4344 {
+
+	public static void main(String[] args) {
+		int testCase;
+		Scanner sc=new Scanner(System.in);
+		testCase=sc.nextInt();
+		int test[][]=new int[testCase][];
+		int ave[]=new int[testCase];
+		int sum;
+		int count;
+		
+		for(int i=0; i<testCase; i++){
+			int num=sc.nextInt();
+			test[i]=new int[num+1];
+			test[i][0]=num;
+			for(int j=1; j<test[i].length; j++) {
+				test[i][j]=sc.nextInt();
+			}
+		}
+		for(int i=0; i<test.length; i++) {
+			ave[i]=0;
+			sum=0;
+			for(int j=1; j<test[i].length; j++) {
+				sum+=test[i][j];
+			}
+			ave[i]=sum/test[i][0];
+		}
+		for(int i=0; i<test.length; i++) {
+			count=0;
+			for(int j=1; j<test[i].length; j++) {
+				if(ave[i]<test[i][j])
+					count++;
+			}
+			System.out.printf("%.3f",(float)(count*100)/(float)test[i][0]);
+			System.out.println("%");
+		}
+	}
+}

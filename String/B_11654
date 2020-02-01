@@ -1,0 +1,17 @@
+package baek_string;
+
+import java.util.Scanner;
+
+public class B_11654 {
+
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		  
+		String str = sc.nextLine();
+		char c = str.charAt(0);
+		int number = c;
+		
+		System.out.println(number);
+	}
+
+}

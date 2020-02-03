@@ -1,0 +1,42 @@
+package baek_math1;
+
+import java.util.Scanner;
+
+public class B_1193 {
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+		int count=1;
+		int i=1;
+		int left=1,right=1;
+		while(count<=num) {
+			count+=i;
+			i+=1;
+		}	
+		i=i-1;
+		count-=i;
+		
+
+		if(i%2!=0) {
+			left=i;
+			right=1;
+			while(count<num) {
+				left-=1;
+				right+=1;
+				count++;
+			}
+		}
+		else if(i%2==0) {
+			left=1;
+			right=i;
+			while(count<num) {
+				left+=1;
+				right-=1;
+				count++;
+			}
+		}
+		System.out.println(left+"/"+right);
+		}
+	
+	}

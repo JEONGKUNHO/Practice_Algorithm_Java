@@ -1,0 +1,38 @@
+package baek_math1;
+
+import java.util.Scanner;
+
+public class B_10250 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int T=sc.nextInt(); //program's number
+		int H,W,N;
+		int count=0;
+		String result[]=new String[T];
+		
+		for(int i=0; i<T; i++) {
+	        H=sc.nextInt(); //How many floor
+			W=sc.nextInt(); //How many rooms in one floor
+			N=sc.nextInt(); //person's number
+			count=0;
+			for(int j=1; j<=W; j++) {
+				for(int z=1; z<=H; z++) {
+					count++;
+					if(count==N) 
+						if(j<10)
+						result[i]=(z+"0"+j);
+						else
+							result[i]=(z+""+j);
+					
+				}
+			}
+			
+		}
+
+		for(int i=0; i<T; i++) {
+			System.out.println(result[i]);
+		}
+	}
+
+}

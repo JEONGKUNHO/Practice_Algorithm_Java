@@ -1,0 +1,22 @@
+package baek_math1;
+
+import java.util.Scanner;
+
+public class B_2869 {
+
+	public static void main(String[] args) {
+		int A,B,V;  //A = up  B = down V = M
+		Scanner sc=new Scanner(System.in);
+		A=sc.nextInt();
+		B=sc.nextInt();
+		V=sc.nextInt();
+		
+	    int go = A-B;
+	    int height = V-A;
+
+	    int day = height / go;
+
+	    System.out.println(height % go != 0 ? day + 2 : day + 1);
+	}
+
+}

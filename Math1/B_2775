@@ -1,0 +1,35 @@
+package baek_math1;
+
+import java.util.Scanner;
+
+public class B_2775 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int testCase=sc.nextInt();
+		int k,n;
+		int result[]=new int[testCase];
+		int person[][]=new int[20][20];
+		for(int i=0; i<=14; i++) {
+			person[0][i]=i+1;
+			person[i][0]=1;
+		}
+		for(int i=0; i<testCase; i++) {
+		    k=sc.nextInt(); // floor
+			n=sc.nextInt(); 
+			if(n==1) {
+				result[i]=person[k][n-1];
+			}
+			for(int j=1; j<=k; j++) { //floor
+				for(int z=1; z<=n-1; z++) { //z+1 is real
+					person[j][z]=person[j][z-1]+person[j-1][z];
+				}
+			}
+			result[i]=person[k][n-1];
+		}
+		for(int i=0; i<testCase; i++) {
+			System.out.println(result[i]);
+		}
+	}
+
+}

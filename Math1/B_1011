@@ -1,0 +1,58 @@
+package baek_math1;
+
+import java.util.Scanner;
+
+public class B_1011 {
+
+	public static void main(String[] args) {
+		int testCase;
+		long x,y;
+		long run=1;
+		long temp,sum1=0,sum2;
+		Scanner sc=new Scanner(System.in);
+		testCase=sc.nextInt();
+		long count[]=new long[testCase];
+		for(int i=0; i<testCase; i++) {
+			x=sc.nextInt();
+			y=sc.nextInt();
+		
+			while(true) {
+				count[i]++;
+				x+=run;
+				if(x==y)
+					break;
+				sum1+=run;
+				sum2=sum1+run+1;
+				if(y-x>sum1&&y-x<sum2) {
+					count[i]=run*2+1;
+					run=1;
+	        sum1=0;
+          sum2=0;
+					break;
+				}
+				else if(y-x==sum2) {
+					count[i]=(run+1)*2-1;
+					run=1;
+	        sum1=0;
+	        sum2=0;
+					break;
+				}
+				else if(y-x>sum1) {
+					run++;
+					continue;
+					}
+				else if(y-x<=sum1) {
+					count[i]=run*2;
+					run=1;
+	        sum1=0;
+	        sum2=0;
+					break;
+				}
+			}
+		}
+		for(int i=0; i<testCase; i++) {
+		System.out.println(count[i]);
+		}
+	}
+
+}

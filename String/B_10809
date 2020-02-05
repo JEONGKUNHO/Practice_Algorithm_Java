@@ -1,0 +1,17 @@
+package baek_string;
+
+import java.util.Scanner;
+
+public class B_10809 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String s=sc.next();
+		
+		for(char i='a'; i<='z'; i++) {
+			int index=s.indexOf(i);
+			System.out.print(index+" ");
+		}
+	}
+
+}

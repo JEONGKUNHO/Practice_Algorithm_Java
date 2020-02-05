@@ -1,0 +1,38 @@
+package baek_string;
+
+import java.util.Scanner;
+
+public class B_1157 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String a=sc.next();
+		int count[]=new int[26];
+		int alp=0;
+		int max=-1;
+		int index=0;
+		char result=0;
+		for(int i=0; i<a.length(); i++) {
+			alp=a.charAt(i);
+			if('a'<=alp&&alp<='z') 
+				alp-=97;
+			else if('A'<=alp&&alp<='Z')
+				alp-=65;
+			
+			count[alp]+=1;
+		}
+		for(int i=0; i<count.length; i++) {
+			if(count[i]>max) {
+				max=count[i];
+				index=i;
+				result=(char)(i+65);
+			}
+			else if(max==count[i]) 
+				result='?';
+			}
+
+		System.out.println(result);
+	
+	}
+
+}

@@ -1,0 +1,21 @@
+package baek_string;
+
+import java.util.Scanner;
+
+public class B_1152 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		String a=sc.nextLine();
+		a=a.trim();
+		int howManyWords;
+		
+		if(a.length()==0)
+			howManyWords=0;
+		else
+		    howManyWords=a.split(" ").length;
+		
+		System.out.println(howManyWords);
+	}
+
+}

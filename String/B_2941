@@ -1,0 +1,20 @@
+package baek_string;
+
+import java.util.Scanner;
+
+public class B_2941 {
+
+	public static void main(String[] args) {
+		String arr[]= {"c=","c-","dz=","d-","lj","nj","s=","z="};
+		
+		Scanner sc= new Scanner(System.in);
+		String a=sc.next();
+		
+		for(int i=0; i<arr.length; i++) {
+			if(a.contains(arr[i])) {
+				a=a.replace(arr[i], "a");
+			}
+		}
+		System.out.println(a.length());
+}
+}

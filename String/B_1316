@@ -1,0 +1,45 @@
+package baek_string;
+
+import java.util.Scanner;
+
+public class B_1316 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int testCase=sc.nextInt();
+		String words[]=new String[testCase];
+		boolean result=false;
+		int count=0;
+		String temp[]=new String[testCase];
+		
+		for(int i=0; i<words.length; i++) {
+			temp[i]="";
+			words[i]=sc.next();
+			if(words[i].length()==1) 
+				temp[i]=words[i];
+				
+			for(int j=1; j<words[i].length(); j++) {
+
+				
+				if(words[i].charAt(j-1)!=words[i].charAt(j))
+					temp[i]+=words[i].charAt(j-1);
+				
+				if(j==words[i].length()-1)
+					temp[i]+=words[i].charAt(j);
+			}	
+		}
+		for(int i=0; i<temp.length; i++) {
+			result=false;
+			for(int j=0; j<temp[i].length()-1; j++) {
+				for(int z=j+1; z<temp[i].length(); z++) {
+					if(temp[i].charAt(j)==temp[i].charAt(z)) {
+						result=true;
+					}
+				}
+			}
+			if(result==false)
+				count++;
+		}
+		System.out.println(count);
+	}
+}

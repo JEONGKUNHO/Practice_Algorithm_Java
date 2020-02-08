@@ -1,0 +1,43 @@
+package baek_math2;
+
+import java.util.Scanner;
+
+public class B_4153 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int num1, num2, num3;
+		num1=sc.nextInt();
+		num2=sc.nextInt();
+		num3=sc.nextInt();
+		String result="";
+		while(num1!=0) {
+			if(num1>=num2&&num1>=num3) {
+				if(num1*num1==num2*num2+num3*num3)
+					result+="right\n";
+				else
+					result+="wrong\n";
+			}
+
+			else if(num2>=num1&&num2>=num3) {
+				if(num2*num2==num1*num1+num3*num3)
+					result+="right\n";
+				else
+					result+="wrong\n";
+			}
+
+			else if(num3>=num2&&num3>=num1) {
+				if(num3*num3==num2*num2+num1*num1)
+					result+="right\n";
+				else
+					result+="wrong\n";
+			}
+
+			num1=sc.nextInt();
+			num2=sc.nextInt();
+			num3=sc.nextInt();
+		}
+		System.out.println(result);
+	}
+
+}

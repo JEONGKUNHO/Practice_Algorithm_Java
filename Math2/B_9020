@@ -1,0 +1,38 @@
+package baek_math2;
+
+import java.util.Scanner;
+
+public class B_9020 {
+    
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int arr[]=new int[10001];
+		int num;
+		for(int i=0; i<arr.length; i++) {
+			arr[i]=i;
+		}
+		for(int i=2; i<arr.length; i++) {
+			for(int j=i+i; j<arr.length; j+=i) {
+				arr[j]=0;
+			}
+		}
+		
+		int testCase=sc.nextInt();
+		String result[]=new String[testCase];
+		
+		for(int i=0; i<testCase; i++) {
+			num=sc.nextInt();
+			for(int j=2; j<=num; j++) {
+				if(j>num-j)
+					break;
+				if(arr[j]!=0&&arr[num-j]!=0) {
+					result[i]=Integer.toString(j)+" "+Integer.toString(num-j);
+				}
+			}
+		}
+		for(int i=0; i<testCase; i++) {
+			System.out.println(result[i]);
+		}
+	}
+
+}

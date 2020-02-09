@@ -3,22 +3,12 @@ package baek_recursion;
 import java.util.Scanner;
 
 public class B_10872 {
-	static int sum=1;
-
 	static int factorial(int num) {
-		if(num==0)
-			return 1;
-		
-		sum*=num;
-
-		if(num==1) {
-			return sum;
+		if(num>1) {
+			return num*factorial(num-1);
 		}
 		else
-		{
-			num--;
-			return factorial(num);
-		}
+			return 1;
 	}
 	
 	public static void main(String[] args) {

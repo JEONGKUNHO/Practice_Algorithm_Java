@@ -1,0 +1,80 @@
+package baek_bruteForce;
+
+import java.util.Scanner;
+
+public class B_1018 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int N=sc.nextInt();
+		int M=sc.nextInt();
+		int num1=0,num2=0;
+		int min=1000;
+		int a,b;
+		char[][] W_chess=  {
+				{'W','B','W','B','W','B','W','B'},
+				{'B','W','B','W','B','W','B','W'},
+				{'W','B','W','B','W','B','W','B'},
+				{'B','W','B','W','B','W','B','W'},
+				{'W','B','W','B','W','B','W','B'},
+				{'B','W','B','W','B','W','B','W'},
+				{'W','B','W','B','W','B','W','B'},
+				{'B','W','B','W','B','W','B','W'},
+		};
+		char[][] B_chess= {
+				{'B','W','B','W','B','W','B','W'},
+				{'W','B','W','B','W','B','W','B'},
+				{'B','W','B','W','B','W','B','W'},
+				{'W','B','W','B','W','B','W','B'},
+				{'B','W','B','W','B','W','B','W'},
+				{'W','B','W','B','W','B','W','B'},
+				{'B','W','B','W','B','W','B','W'},
+				{'W','B','W','B','W','B','W','B'},
+		};
+		char temp[][]=new char[100][100];
+		
+		char NM[][]=new char[N][M];
+		String str[]=new String[N];
+		for(int i=0; i<N; i++) {
+			str[i]=sc.next();
+		}
+		for(int i=0; i<N; i++) {
+			for(int j=0; j<M; j++) {
+				NM[i][j]=str[i].charAt(j);
+			}
+		}
+		
+		for(int x=0; x<=N-8; x++) {
+			for(int y=0; y<=M-8; y++) {
+				num1=0; num2=0;
+				a=0;b=0;
+				for(int i=x; i<8+x; i++) {
+					for(int j=y; j<8+y; j++) {
+						temp[a][b]=NM[i][j];
+						b++;
+					}
+					b=0;
+					a++;
+				}
+					for(int c=0; c<8; c++) {
+						for(int d=0; d<8; d++) {
+							if(temp[c][d]!=W_chess[c][d])
+								num1++;
+						}
+				}
+					for(int c=0; c<8; c++) {
+						for(int d=0; d<8; d++) {
+							if(temp[c][d]!=B_chess[c][d])
+								num2++;
+						}
+				}
+					if(num1>=num2&&num2<min)
+						min=num2;
+					else if(num2>=num1&&num1<min)
+						min=num1;
+			}
+		}
+		System.out.print(min);
+	}
+
+}
